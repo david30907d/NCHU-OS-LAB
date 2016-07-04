@@ -17,7 +17,7 @@
                         if [ "${guessNum}" -gt "${upNum}" -o "${guessNum}" -lt "${lowNum}" ]; then
                                 echo "Error input.Please try again!"
                         #Match the target
-                        elif [ "${guessNum}" == "$1" ]; then
+                        elif [ "${guessNum}" == "${1}" ]; then
                                 echo "Bingo!"
                                 match="yes"
                         elif [ "${guessNum}" == "${upNum}" ]; then
