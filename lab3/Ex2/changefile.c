@@ -7,18 +7,17 @@
 int main(void)
 {
 	FILE *cptr;
-	int temp;
 	printf("My real user id = %d\n",getuid());
 	printf("My effective user id = %d\n",geteuid());
+	// seteuid(0);
 	cptr = fopen("datafile.txt", "a");
 	if(cptr == NULL){
 		printf("Can't open file.\n");
 		return 0;
-	} else {
-		fprintf("My real user id = %d\n", getuid());
-		fprintf("My effective user id = %d\n", geteuid());
-		fclose(cptr);
 	}
+	fprintf(cptr,"My real user id = %d\n", getuid());
+	fprintf(cptr,"My effective user id = %d\n", geteuid());
+	fclose(cptr);
 
 	return 0;
 }

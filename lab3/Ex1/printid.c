@@ -1,11 +1,22 @@
 /*
 	Step1.
-		Change to "root"
+		Change user to "root"
 	Step2.
-		compile this file
+		compile print.c
 	Step3.
-		Change back to your user and run it.
+		chmod 4755 ./a.out     4的意思是rw"s"
+	Step4.
+		在root下執行./a.out
+		會產生  ruid:0
+				euid:0
+	Step5.
+		回到一般使用者然後執行./a.out
+		會看到	ruid:1000
+				euid:0
 
+		若有seteuid(500) 這行，代表會看到
+				ruid:1000
+				euid:500
 */
 
 
@@ -17,8 +28,11 @@
 int main(void)
 {
 	int ruid = getuid();
-	int euid = seteuid(geteuid());
+	// 強制將effective uid設成500
+	//seteuid(500);
 
+	int euid = geteuid();
+	
 	printf("RUID: %d\n",ruid);
 	printf("EUID: %d\n",euid);
 
