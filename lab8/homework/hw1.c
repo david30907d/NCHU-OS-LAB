@@ -1,3 +1,5 @@
+// 傳遞多個參數給thread handler  參考:http://pccts.blogspot.tw/2007/11/pthreadcreate.html
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>

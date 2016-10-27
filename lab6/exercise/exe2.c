@@ -9,7 +9,9 @@
 
 int main(int argc, char *argv[])
 {
-    
+    printf("I'm parent process A.\n");
+    printf("PID: %d\tParent PID: %d\n",getpid(),getppid());
+
     // create process B
     if(fork() == 0)
     {
@@ -44,8 +46,8 @@ int main(int argc, char *argv[])
     }
     wait();
 
-    printf(GRN_BOLD"I'm parent process A.\n");
-    printf("PID: %d\tParent PID: %d\n"RESET,getpid(),getppid());
+    // printf(GRN_BOLD"I'm parent process A.\n");
+    // printf("PID: %d\tParent PID: %d\n"RESET,getpid(),getppid());
 
     return 0;
 }

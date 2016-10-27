@@ -7,7 +7,7 @@
 int main()
 {
     // create a message queue which key value is 0x1234
-    key_t key = 0x1234;
+    key_t key = 0x1235;
     int msqid;
 
     msqid = msgget(key, IPC_CREAT | 0666);
